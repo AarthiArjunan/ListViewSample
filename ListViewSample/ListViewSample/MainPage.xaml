@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewSample"
+             x:Class="ListViewSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10">
+
+        <Label Text="Items List" 
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <ListView ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="10">
+                            <Label Text="{Binding Name}" 
+                                   FontSize="18" 
+                                   TextColor="Blue" />
+                            <Label Text="{Binding Description}" 
+                                   FontSize="14" 
+                                   TextColor="Gray" />
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" 
+                                   FontSize="16" 
+                                   TextColor="Green" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>
